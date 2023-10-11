@@ -1,0 +1,154 @@
+/* Write your CSS here */
+.latest-match-card-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.latest-match-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Bree Serif';
+}
+
+.latest-match-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #0f172a;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.latest-match-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-logo-container {
+    width: 60%;
+  }
+}
+
+.latest-match-details-main {
+  color: #ffffff;
+  font-family: 'Bree Serif';
+  width: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-details-main {
+    width: 100%;
+  }
+}
+
+.latest-match-team-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-team-name {
+    font-size: 25px;
+  }
+}
+
+.latest-match-date,
+.latest-match-venue,
+.latest.match-status {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-date,
+  .latest-match-venue,
+  .latest.match-status {
+    font-size: 20px;
+  }
+}
+
+.latest-match-logo {
+  height: 100px;
+  width: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-logo {
+    min-height: 150px;
+    max-height: 200px;
+    min-width: 150px;
+  }
+}
+
+.latest-match-details-info {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-details-info {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: right;
+    width: 30%;
+    padding-left: 0px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .match-info-item {
+    width: 45%;
+    border: 0.5px solid #fff9fc;
+    padding: 10px;
+    border-radius: 25px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    min-height: 100px;
+    max-height: 200px;
+  }
+}
+
+.latest-match-details-label {
+  color: #ffffff;
+  font-size: 15px;
+  font-family: 'Bree Serif';
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-details-label {
+    font-size: 20px;
+  }
+}
+
+.latest-match-details-value {
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Bree Serif';
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-details-value {
+    font-size: 15px;
+  }
+}
