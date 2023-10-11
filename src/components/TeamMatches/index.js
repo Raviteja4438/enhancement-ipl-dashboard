@@ -80,7 +80,7 @@ class TeamMatches extends Component {
 
   renderLoader = () => (
     <div id="loader" className="loader-container">
-      <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
+      <Loader type="Oval" color="#ffffff" height={50} width={50} />
     </div>
   )
 

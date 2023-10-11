@@ -16,7 +16,7 @@ class Home extends Component {
   }
 
   getTeamsList = async () => {
-    const response = await fetch('https://apis.ccbp,in/ipl')
+    const response = await fetch('https://apis.ccbp.in/ipl')
     const fetchData = await response.json()
     const updatedData = fetchData.teams.map(eachData => ({
       name: eachData.name,
@@ -39,7 +39,7 @@ class Home extends Component {
 
   renderLoader = () => (
     <div id="loader" className="loader-container">
-      <Loader type="Rings" color="#00bfff" height={80} width={80} />
+      <Loader type="Oval" color="#ffffff" height={50} width={50} />
     </div>
   )
 
