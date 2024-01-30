@@ -1,28 +1,33 @@
 // Write your code here
-import './index.css'
-import Loader from 'react-loader-spinner'
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
+import Loader from 'react-loader-spinner'
+import {PieChart, Pie, Cell, Legend} from 'recharts'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 
+import './index.css'
+
 class TeamMatches extends Component {
-  state = {
-    matchesData: [],
-    isLoading: true,
-  }
+  state = {matchesData: [], isLoading: true}
 
   componentDidMount() {
-    this.getTeamMatches()
+    this.getIplTeamDetails()
   }
 
-  getTeamMatches = async () => {
+  handleGoBack = () => {
+    this.props.history.push('/')
+  }
+
+  getIplTeamDetails = async () => {
     const {match} = this.props
     const {params} = match
     const {id} = params
+
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const fetchedData = await response.json()
-    const updatedData = {
+
+    const updatedIplTeamDetails = {
       teamBannerUrl: fetchedData.team_banner_url,
       latestMatchDetails: {
         id: fetchedData.latest_match_details.id,
@@ -51,38 +56,84 @@ class TeamMatches extends Component {
         matchStatus: recentMatch.match_status,
       })),
     }
-    this.setState({matchesData: updatedData, isLoading: false})
+
+    console.log(updatedIplTeamDetails)
+    this.setState({isLoading: false, matchesData: updatedIplTeamDetails})
   }
 
-  renderTeamMatches = () => {
+  renderLoader = () => (
+    <div className="loader-container" testid="loader">
+      <Loader type="BallTriangle" height={80} width={80} color="#475569" />
+    </div>
+  )
+
+  renderIplTeamDetails = () => {
     const {matchesData} = this.state
     const {teamBannerUrl, latestMatchDetails} = matchesData
     return (
-      <div className="team-match-container">
-        <img src={teamBannerUrl} alt="team banner" className="team-banner" />
-        <LatestMatch LatestMatch={latestMatchDetails} />
-        {this.renderRecentMatchesList()}
+      <div className="ipl-team-details">
+        <img src={teamBannerUrl} alt="team banner" className="team-logo" />
+        <LatestMatch matchDetails={latestMatchDetails} />
+        {this.renderIplTeamAllMatches()}
+        {this.renderPieChart()}
+        <button onClick={this.handleGoBack}>Back</button>
       </div>
     )
   }
 
-  renderRecentMatchesList = () => {
+  renderIplTeamAllMatches = () => {
     const {matchesData} = this.state
     const {recentMatches} = matchesData
+
     return (
-      <ul className="recent-matches-list">
+      <ul className="recent-matches-container">
         {recentMatches.map(eachMatch => (
-          <MatchCard matchData={eachMatch} key={eachMatch.id} />
+          <MatchCard key={eachMatch.id} matchDetails={eachMatch} />
         ))}
       </ul>
     )
   }
 
-  renderLoader = () => (
-    <div id="loader" className="loader-container">
-      <Loader type="Oval" color="#ffffff" height={50} width={50} />
-    </div>
-  )
+  renderPieChart = () => {
+    const {matchesData} = this.state
+    const {recentMatches} = matchesData
+
+    const wins = recentMatches.filter(match => match.result === 'won').length
+    const losses = recentMatches.filter(match => match.result === 'lost').length
+    const draws = recentMatches.filter(match => match.result === 'draw').length
+
+    const data = [
+      {name: 'Wins', value: wins},
+      {name: 'Losses', value: losses},
+      {name: 'Draws', value: draws},
+    ]
+
+    const COLORS = ['#0088FE', '#FF8042', '#FFBB28']
+
+    return (
+      <div className="pie-chart-container">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={data}
+            cx={200}
+            cy={200}
+            labelLine={false}
+            outerRadius={80}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+          <Legend />
+        </PieChart>
+      </div>
+    )
+  }
 
   render() {
     const {isLoading} = this.state
@@ -90,8 +141,13 @@ class TeamMatches extends Component {
     const {params} = match
     const {id} = params
     return (
-      <div className={`app-team-matches-container ${id}`}>
-        {isLoading ? this.renderLoader() : this.renderTeamMatches()}
+      <div className="app-container">
+        <div className={`app-team-matches-container ${id}`}>
+          <Link to="/" onClick={this.handleGoBack}>
+            Back
+          </Link>
+          {isLoading ? this.renderLoader() : this.renderIplTeamDetails()}
+        </div>
       </div>
     )
   }

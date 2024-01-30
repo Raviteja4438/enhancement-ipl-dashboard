@@ -1,58 +1,63 @@
 /* Write your CSS here */
 .link-item {
   text-decoration: none;
-  width: 45%;
+  width: 50%;
 }
 
-.team-card {
+@media screen and (min-width: 768px) {
+  .link-item {
+    text-decoration: none;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.ipl-team {
+  list-style: none;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  justify-content: space-between;
   align-items: center;
-  background-color: #ffffff33;
-  border: 1px solid #ffffff;
-  border-radius: 10px;
+  padding: 12px;
+  min-height: 100px;
   padding: 5px 10px 5px 10px;
   margin-right: 20px;
   margin-bottom: 20px;
+  background-color: #ffffff33;
   cursor: pointer;
-  min-height: 100px;
 }
 
-@media screen and (min-width: 576px) {
-  .team-card {
+@media screen and (min-width: 768px) {
+  .ipl-team {
+    list-style: none;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-height: 150px;
+    padding: 12px;
+    min-height: 100px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 300px;
   }
 }
 
-.team-card-image {
-  height: 50px;
-  width: 50px;
+.ipl-team-logo {
+  width: 70px;
 }
 
-@media screen and (min-width: 768px) {
-  .team-card-image {
-    height: 80px;
-    width: 80px;
-  }
-}
-
-.team-card-name {
-  font-size: 15px;
-  color: #ffffff;
-  font-weight: 500;
+.ipl-team-name {
   font-family: 'Bree Serif';
-  margin-left: 10px;
-  text-align: center;
-}
-
-@media screen and (min-width: 768px) {
-  .team-card-name {
-    font-size: 25px;
-    margin-left: 30px;
-  }
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: right;
 }

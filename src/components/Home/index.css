@@ -1,8 +1,12 @@
 /* Write your CSS here */
 .app-container {
+  margin: 0px;
+}
+
+.responsive-container {
   background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-sm-bg.png');
+  min-height: 100vh;
   background-size: cover;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,63 +14,73 @@
 }
 
 @media screen and (min-width: 768px) {
-  .app-container {
+  .responsive-container {
     background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png');
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 }
 
-.ipl-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-}
-
-@media screen and (min-width: 768px) {
-  .ipl-container {
-    padding: 30px;
-  }
-}
-
-.header-container {
+.title-logo-container {
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 90%;
+  justify-content: space-evenly;
 }
 
 .ipl-logo {
   height: 50px;
-  width: 50px;
-  margin-right: 20px;
+  width: 50p;
 }
 
-@media screen and (min-width: 768px) {
-  .ipl-logo {
-    height: 70px;
-    width: 70px;
-  }
-}
-
-.header-heading {
-  color: #ffffff;
-  font-size: 35px;
-  font-weight: 700;
+.ipl-heading {
+  font-size: 24px;
+  font-weight: 600;
   font-family: 'Bree Serif';
-  text-align: center;
+  color: #ffffff;
 }
 
-@media screen and (min-width: 768px) {
-  .header-heading {
-    font-size: 40px;
+@media screen and (min-width: 576px) {
+  .title-logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 400px;
+    justify-content: space-evenly;
+  }
+
+  .ipl-logo {
+    height: 60px;
+    width: 60p;
+  }
+
+  .ipl-heading {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: 'Bree Serif';
+    color: #ffffff;
   }
 }
 
-.team-list-items {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  list-style: none;
+.loader-container {
+  margin: 12px;
+}
+
+.ipl-teams-list-container {
+  padding: 14px;
+}
+
+@media screen and (min-width: 768px) {
+  .ipl-teams-list-container {
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }

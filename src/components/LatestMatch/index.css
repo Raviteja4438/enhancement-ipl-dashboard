@@ -1,154 +1,135 @@
-/* Write your CSS here */
-.latest-match-card-container {
-  width: 100%;
-  margin-top: 20px;
+.latest-match-section {
+  font-family: 'Bree Serif';
+  width: 90%;
 }
 
-.latest-match-heading {
-  font-size: 20px;
-  font-weight: 700;
-  color: #ffffff;
-  font-family: 'Bree Serif';
+.latest-match-container {
+  background-color: #0f172a;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .latest-match-container {
+    background-color: #0f172a;
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .latest-match-card {
   display: flex;
-  flex-direction: column;
-  background-color: #0f172a;
-  border-radius: 5px;
-  padding: 10px 15px 10px 15px;
+  flex-direction: row;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
   .latest-match-card {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-}
-
-.latest-match-logo-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-logo-container {
-    width: 60%;
-  }
-}
-
-.latest-match-details-main {
-  color: #ffffff;
-  font-family: 'Bree Serif';
-  width: 80%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  display: flex;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-details-main {
-    width: 100%;
-  }
-}
-
-.latest-match-team-name {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 0px;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-team-name {
-    font-size: 25px;
-  }
-}
-
-.latest-match-date,
-.latest-match-venue,
-.latest.match-status {
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 0px;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-date,
-  .latest-match-venue,
-  .latest.match-status {
-    font-size: 20px;
-  }
-}
-
-.latest-match-logo {
-  height: 100px;
-  width: 100px;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-logo {
-    min-height: 150px;
-    max-height: 200px;
-    min-width: 150px;
-  }
-}
-
-.latest-match-details-info {
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 100%;
-  margin-top: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .latest-match-details-info {
     display: flex;
-    flex-wrap: wrap;
-    text-align: right;
-    width: 30%;
-    padding-left: 0px;
-    padding-right: 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 63%;
   }
 }
 
-@media screen and (min-width: 768px) {
-  .match-info-item {
-    width: 45%;
-    border: 0.5px solid #fff9fc;
-    padding: 10px;
-    border-radius: 25px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    min-height: 100px;
-    max-height: 200px;
-  }
-}
-
-.latest-match-details-label {
+.latest-competing-team {
   color: #ffffff;
-  font-size: 15px;
-  font-family: 'Bree Serif';
+  font-size: 24px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 18px;
+  margin-bottom: 38px;
+}
+
+.latest-match-details {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 16px;
+  margin-top: 26px;
+}
+
+.competing-team-logo {
+  width: 100px;
+  margin-right: 32px;
 }
 
 @media screen and (min-width: 768px) {
-  .latest-match-details-label {
+  .competing-team-logo {
+    width: 150px;
+    margin-right: 32px;
+  }
+}
+
+.break-line {
+  border: 1px solid #ffffff;
+  width: 100%;
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .break-line {
+    display: none;
+  }
+}
+
+.match-category-heading {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.match-category-result {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .match-category-heading {
+    color: #ffffff;
     font-size: 20px;
+    font-weight: 400;
+    text-align: right;
+    margin-bottom: 0px;
+  }
+
+  .match-category-result {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: right;
+    margin-bottom: 6px;
   }
 }
 
-.latest-match-details-value {
-  color: #ffffff;
-  font-size: 12px;
-  font-family: 'Bree Serif';
+.match-details {
+  margin-right: 12px;
 }
 
 @media screen and (min-width: 768px) {
-  .latest-match-details-value {
-    font-size: 15px;
+  .match-details {
+    margin-right: 52px;
   }
+}
+
+.latest-match-heading {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-top: 42px;
 }
